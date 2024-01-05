@@ -71,6 +71,3 @@ echo "-------------Deploying Cilium-------------"
 helm repo add cilium https://helm.cilium.io/
 helm install cilium cilium/cilium --version 1.14.5 --namespace kube-system
 
-
-echo "-------------Creating file with join command-------------"
-echo `kubeadm token create --print-join-command` > ./join-command.sh
