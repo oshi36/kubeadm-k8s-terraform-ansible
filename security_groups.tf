@@ -30,24 +30,6 @@ resource "aws_security_group" "k8s_master" {
   }
 
   ingress {
-    description      = "Weavenet TCP"
-    from_port        = 6783
-    to_port          = 6783
-    protocol         = "tcp"
-    cidr_blocks      = ["0.0.0.0/0"]
-    ipv6_cidr_blocks = ["::/0"]
-  }
-
-  ingress {
-    description      = "Weavenet TCP"
-    from_port        = 6784
-    to_port          = 6784
-    protocol         = "udp"
-    cidr_blocks      = ["0.0.0.0/0"]
-    ipv6_cidr_blocks = ["::/0"]
-  }
-
-  ingress {
     description      = "Kubelet API, Kube-scheduler, Kube-controller-manager, Read-Only Kubelet API, Kubelet health"
     from_port        = 10248
     to_port          = 10260
@@ -91,23 +73,6 @@ resource "aws_security_group" "k8s_worker" {
     ipv6_cidr_blocks = ["::/0"]
   }
 
-  ingress {
-    description      = "Weavenet TCP"
-    from_port        = 6783
-    to_port          = 6783
-    protocol         = "tcp"
-    cidr_blocks      = ["0.0.0.0/0"]
-    ipv6_cidr_blocks = ["::/0"]
-  }
-
-  ingress {
-    description      = "Weavenet TCP"
-    from_port        = 6784
-    to_port          = 6784
-    protocol         = "udp"
-    cidr_blocks      = ["0.0.0.0/0"]
-    ipv6_cidr_blocks = ["::/0"]
-  }
 
   ingress {
     description      = "Kubelet API, Kube-scheduler, Kube-controller-manager, Read-Only Kubelet API, Kubelet health"

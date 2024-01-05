@@ -4,4 +4,4 @@ k8s.pub
 terraform.tfstate
 terraform.tfstate.backup
 .terraform/
-./join-command.sh
+join-command.sh
