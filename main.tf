@@ -1,7 +1,11 @@
+module "iam" {
+  source = "./modules/IAM"
+}
 # Launch master node
 resource "aws_instance" "k8s_master" {
   ami           = var.ami["master"]
   instance_type = var.instance_type["master"]
+  iam_instance_profile = module.iam.master_profile_name
   tags = {
     Name = "k8s-master"
   }
@@ -34,6 +38,8 @@ resource "aws_instance" "k8s_worker" {
   count         = var.worker_instance_count
   ami           = var.ami["worker"]
   instance_type = var.instance_type["worker"]
+  iam_instance_profile = module.iam.worker_profile_name
+
   tags = {
     Name = "k8s-worker-${count.index}"
   }

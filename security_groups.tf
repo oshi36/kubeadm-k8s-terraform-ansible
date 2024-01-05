@@ -57,6 +57,7 @@ resource "aws_security_group" "k8s_master" {
 
   tags = {
     Name = "k8s_master_sg"
+    
   }
 }
 
