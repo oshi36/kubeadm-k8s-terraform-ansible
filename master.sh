@@ -74,3 +74,6 @@ helm install cilium cilium/cilium --version 1.14.5 --namespace kube-system
 
 echo "-------------Creating file with join command-------------"
 echo `kubeadm token create --print-join-command` > ./join-command.sh
+
+echo "-------------Creating Storage Class-------------"
+kubectl apply -f https://raw.githubusercontent.com/rancher/local-path-provisioner/v0.0.26/deploy/local-path-storage.yaml
